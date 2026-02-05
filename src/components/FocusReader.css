@@ -1,0 +1,150 @@
+/* =========================
+   FocusReader Wrapper
+========================= */
+.focus-reader-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: #111;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* =========================
+   FocusReader Container (text area)
+========================= */
+.focus-reader-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 3rem 2rem;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  position: relative;
+}
+
+/* Focus word styles */
+.focus-word {
+  filter: blur(5px);
+  transition: filter 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  margin-right: 0.25rem;
+  cursor: default;
+}
+
+.focus-word.active {
+  filter: blur(0);
+  font-weight: bold;
+  color: var(--focus-color, #00ff00);
+}
+
+/* =========================
+   Focus Box / Ring
+========================= */
+.focus-box {
+  position: absolute;
+  border: 2px solid var(--focus-color, #00ff00);
+  box-shadow: 0 0 8px var(--focus-color, #00ff00);
+  pointer-events: none;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  z-index: 900;
+}
+
+/* =========================
+   Controls Bottom Center
+========================= */
+.focus-controls.bottom-center {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  z-index: 1000;
+  max-width: 95%;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Controls sub-groups */
+.focus-controls .focus-buttons,
+.focus-controls .focus-sliders,
+.focus-controls .focus-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Buttons style */
+.focus-controls button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.focus-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Sliders style */
+.focus-controls input[type="range"] {
+  width: 120px;
+  cursor: pointer;
+}
+
+.focus-controls input[type="color"] {
+  width: 40px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Info section (current word, total, exit) */
+.focus-controls .focus-info {
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .focus-reader-container {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    padding: 2rem 1rem;
+  }
+
+  .focus-controls button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .focus-controls input[type="range"] {
+    width: 90px;
+  }
+}

@@ -349,6 +349,42 @@ body {
 
 
 
+.reader-mode-toggle {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem;
+  border-radius: 999px;
+  z-index: 50;
+}
+
+.reader-mode-toggle button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.reader-mode-toggle button.active {
+  background: white;
+  color: black;
+  opacity: 1;
+}
+
+
+
+
+
+
 @keyframes fadeIn {
   from {
     opacity: 0.7;
