@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: 'https://github.com/Dinuka7L/Flurry-RSVP-Reader/',
+  base: '/Flurry-RSVP-Reader/',
 });
