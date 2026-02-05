@@ -4,7 +4,7 @@ import type { Theme } from '../types';
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem('rsvp-theme');
-    return (stored as Theme) || 'light';
+    return (stored as Theme) || 'dark'; //
   });
 
   useEffect(() => {
